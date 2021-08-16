@@ -39,11 +39,23 @@ public class TickAcceleratorTileEntityTier2 extends TileEntity implements ITicka
         }
         if (block.hasTileEntity(blockState)) {
             TileEntity tileEntity = world.getBlockEntity(pos);
-            if (tileEntity != null && !tileEntity.isRemoved() && tileEntity instanceof ITickableTileEntity) {
+            if (tileEntity != null && !tileEntity.isRemoved() && tileEntity instanceof ITickableTileEntity && checkIfNotTickAcceleratorBlock(tileEntity)) {
                 for (int i = 0; i < 8; i++) {
                     ((ITickableTileEntity) tileEntity).tick();
                 }
             }
+        }
+    }
+
+    private boolean checkIfNotTickAcceleratorBlock(TileEntity tileEntity)
+    {
+        if(tileEntity instanceof TickAcceleratorTileEntityTier1 || tileEntity instanceof TickAcceleratorTileEntityTier2 || tileEntity instanceof TickAcceleratorTileEntityTier3 || tileEntity instanceof TickAcceleratorTileEntityTier4)
+        {
+            return false;
+        }
+        else
+        {
+            return true;
         }
     }
 
