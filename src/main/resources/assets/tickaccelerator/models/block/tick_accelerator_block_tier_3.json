@@ -1,0 +1,6 @@
+{
+	"parent": "block/cube_all",
+	"textures": {
+		"all": "tickaccelerator:block/tick_accelerator_block_tier_3"
+	}
+}

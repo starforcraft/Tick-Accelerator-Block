@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "NEN",
+    "ESE",
+    "NEN"
+  ],
+  "key": {
+    "N": { "item": "minecraft:netherite_block" },
+    "S": { "item": "tickaccelerator:tick_accelerator_block_tier_1" },
+    "E": { "item": "minecraft:end_crystal" }
+  },
+  "result": {
+    "item": "tickaccelerator:tick_accelerator_block_tier_2",
+    "count": 1
+  }
+}
