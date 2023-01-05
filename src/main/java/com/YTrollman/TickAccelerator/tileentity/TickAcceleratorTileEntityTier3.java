@@ -1,5 +1,6 @@
 package com.YTrollman.TickAccelerator.tileentity;
 
+import com.YTrollman.TickAccelerator.config.TickAcceleratorConfig;
 import com.YTrollman.TickAccelerator.registry.ModTileEntityTypes;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -20,8 +21,7 @@ public class TickAcceleratorTileEntityTier3 extends TileEntity implements ITicka
 
     @Override
     public void tick() {
-        if(isPoweredByRedstone)
-        {
+        if(isPoweredByRedstone) {
             World world = this.getLevel();
             BlockPos pos = this.getBlockPos();
             accelerateTick(world, pos.above());
@@ -40,7 +40,7 @@ public class TickAcceleratorTileEntityTier3 extends TileEntity implements ITicka
         if (block.hasTileEntity(blockState)) {
             TileEntity tileEntity = world.getBlockEntity(pos);
             if (tileEntity != null && !tileEntity.isRemoved() && tileEntity instanceof ITickableTileEntity && checkIfNotTickAcceleratorBlock(tileEntity)) {
-                for (int i = 0; i < 12; i++) {
+                for (int i = 0; i < TickAcceleratorConfig.TICK_ACCELERATOR_TIER_3_SPEED.get(); i++) {
                     ((ITickableTileEntity) tileEntity).tick();
                 }
             }
